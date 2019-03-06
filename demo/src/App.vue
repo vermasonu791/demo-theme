@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HelloWorld :pseudoslot="(list)=> list.name">
+      <a href slot-scope="{ row }">{{row.name}}</a>
+    </HelloWorld>
   </div>
 </template>
 
@@ -12,6 +14,11 @@ export default {
   name: "app",
   components: {
     HelloWorld
+  },
+  data: () => {
+    return {
+      title1: "learn slot"
+    };
   }
 };
 </script>

@@ -29,7 +29,10 @@ export default {
     },
 
     remove(t) {
+      alert(this.tasks.indexOf(t));
       this.tasks.splice(this.tasks.indexOf(t), 1);
+           
+      
     },
     increment() {
       console.log("hello");
@@ -38,7 +41,8 @@ export default {
     
   },
     mounted() {
-    return this.$store.dispatch("loadpost");
+     this.$store.dispatch("loadpost");
+
     },
 };
 </script>

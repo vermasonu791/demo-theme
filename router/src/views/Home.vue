@@ -39,18 +39,17 @@ export default {
     },
     checked() {
       console.log("sonu");
-      if (this.$store.state.isSignedin == false) {
-        router.push({ name: "login" });
-      }
+      // if (this.$store.state.isSignedin == false) {
+      //   router.push({ name: "login" });
+      // }
     },
-    signout() {
-      var auth2 = gapi.auth2.getAuthInstance();
-      auth2.signOut().then(function() {
-        router.push({ name: "login" });
-      
-        console.log("User signed out.");
-      });
-    }
+    // signout() {
+    //   var auth2 = gapi.auth2.getAuthInstance();
+    //   auth2.signOut().then(function() {
+    //     router.push({ name: "login" });
+    //     console.log("User signed out.");
+    //   });
+    // }
     // This is null if the 'email' scope is not present.
   },
   mounted() {

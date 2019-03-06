@@ -1,15 +1,30 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-  
+    <ul v-for="(list, index) in list" :key="index">
+      <li>{{pseudoslot(list) }}</li>
+     <li> <slot :row="list"></slot></li>
+    </ul>
+    <div :class="[ isDark ? 'background-dark' : 'background-light' ]">
+      <p>{{ data }}</p>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: "HelloWorld",
-  props: {
-    msg: String
+  props: ["pseudoslot"],
+  data: function() {
+    return {
+      list: [
+        { name: "sonu" },
+        { name: "sam" },
+        { name: "rahman" },
+        { name: "joe" }
+      ],
+      isDark:false,
+      data:"Some Text"
+    };
   }
 };
 </script>
@@ -29,5 +44,12 @@ li {
 }
 a {
   color: #42b983;
+}
+.background-dark {
+  background-color: #000;
+}
+.background-light {
+  background-color: #fff;
+  color:red;
 }
 </style>
